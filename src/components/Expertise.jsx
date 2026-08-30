@@ -52,7 +52,7 @@ const TagCard = ({ number, title, text, className, pathLength, containerRef }) =
             {number}
           </span>
 
-          <h3 className={`text-xl font-['Fjalla_One'] mb-3 tracking-tight transition-colors duration-500 uppercase ${
+          <h3 className={`text-xl font-['Fjalla_One'] mb-3 tracking-tight transition-colors duration-500 uppercase sm:whitespace-nowrap ${
             isActive ? 'text-white' : 'text-gray-900'
           }`}>
             {title}
@@ -127,7 +127,7 @@ const Expertise = () => {
           </defs>
 
           <path
-            d="M 460,340 C 560,280 620,180 680,180 C 520,380 320,480 420,580 C 560,700 740,860 660,1020 C 520,1180 320,1320 420,1460 C 540,1600 720,1760 640,1920"
+            d="M 700,200 C 650,420 400,480 300,600 C 400,800 620,860 700,1020 C 620,1220 400,1280 320,1440 C 420,1640 600,1700 680,1860"
             fill="none"
             stroke="#cbd5e1"
             strokeWidth="2"
@@ -136,7 +136,7 @@ const Expertise = () => {
 
           <mask id="path-mask">
             <motion.path
-              d="M 460,340 C 560,280 620,180 680,180 C 520,380 320,480 420,580 C 560,700 740,860 660,1020 C 520,1180 320,1320 420,1460 C 540,1600 720,1760 640,1920"
+              d="M 700,200 C 650,420 400,480 300,600 C 400,800 620,860 700,1020 C 620,1220 400,1280 320,1440 C 420,1640 600,1700 680,1860"
               fill="none"
               stroke="white"
               strokeWidth="20"
@@ -145,7 +145,7 @@ const Expertise = () => {
           </mask>
 
           <path
-            d="M 460,340 C 560,280 620,180 680,180 C 520,380 320,480 420,580 C 560,700 740,860 660,1020 C 520,1180 320,1320 420,1460 C 540,1600 720,1760 640,1920"
+            d="M 700,200 C 650,420 400,480 300,600 C 400,800 620,860 700,1020 C 620,1220 400,1280 320,1440 C 420,1640 600,1700 680,1860"
             fill="none"
             stroke="black"
             strokeWidth="2.5"
@@ -199,7 +199,7 @@ const Expertise = () => {
             number="01"
             title={expertiseData[0].title}
             text={expertiseData[0].description}
-            className="md:absolute md:top-[10px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-3"
+            className="md:absolute md:top-[10px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-3 max-w-sm sm:max-w-md lg:max-w-xl"
             pathLength={pathLength}
             containerRef={containerRef}
           />

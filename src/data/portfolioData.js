@@ -234,7 +234,7 @@ export const certificationsData = [
   {
     id: "05",
     title: "Tata – Data Visualisation: Empowering Business with Effective Insights",
-    organization: "Tata / Forage (LinkedIn)",
+    organization: "Tata / Forage",
     date: "December 2025",
     duration: "Simulation",
     description: "Data visualization, dashboard design, and translating complex data into actionable business insights.",

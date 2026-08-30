@@ -285,4 +285,17 @@ body {
   -webkit-box-shadow: 0 0 0px 1000px #ff2a2a inset !important;
   transition: background-color 5000s ease-in-out 0s !important;
 }
-
+/* Hide Netlify Injection Badges & Drawers */
+[data-netlify-badge],
+.netlify-badge,
+#netlify-badge,
+iframe[src*="netlify"],
+#netlify-notification-drawer,
+.netlify-notification-drawer,
+div[id*="netlify-badge"],
+a[href*="netlify.com"][class*="badge"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
