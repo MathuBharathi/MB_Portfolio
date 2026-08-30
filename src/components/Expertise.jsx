@@ -87,9 +87,9 @@ const Expertise = () => {
     <section
       id="expertise"
       ref={containerRef}
-      className="bg-white pt-24 pb-36 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]"
+      className="bg-white pt-24 pb-16 md:pb-20 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]"
     >
-      <div className="max-w-6xl mx-auto relative md:min-h-[2250px]">
+      <div className="max-w-6xl mx-auto relative md:min-h-[2100px]">
 
         {/* Header Content */}
         <div data-aos="fade-up" className="md:absolute top-8 left-0 md:w-[480px] z-20 mb-16 md:mb-0">
@@ -106,12 +106,12 @@ const Expertise = () => {
 
         {/* Desktop SVG Animated Dashed Line */}
         <svg
-          className="hidden md:block absolute top-0 left-0 w-full h-[2250px] pointer-events-none z-0"
-          viewBox="0 0 1000 2250"
+          className="hidden md:block absolute top-0 left-0 w-full h-[2100px] pointer-events-none z-0"
+          viewBox="0 0 1000 2100"
           preserveAspectRatio="none"
         >
           <path
-            d="M 680,220 C 400,320 200,450 300,680 C 420,900 780,850 720,1080 C 650,1320 350,1380 450,1650 C 550,1850 620,1980 680,2120"
+            d="M 680,220 C 400,320 200,450 300,680 C 420,900 780,850 720,1080 C 650,1320 350,1380 450,1650 C 550,1850 620,1980 680,2060"
             fill="none"
             stroke="#cbd5e1"
             strokeWidth="2"
@@ -120,7 +120,7 @@ const Expertise = () => {
 
           <mask id="path-mask">
             <motion.path
-              d="M 680,220 C 400,320 200,450 300,680 C 420,900 780,850 720,1080 C 650,1320 350,1380 450,1650 C 550,1850 620,1980 680,2120"
+              d="M 680,220 C 400,320 200,450 300,680 C 420,900 780,850 720,1080 C 650,1320 350,1380 450,1650 C 550,1850 620,1980 680,2060"
               fill="none"
               stroke="white"
               strokeWidth="20"
@@ -129,7 +129,7 @@ const Expertise = () => {
           </mask>
 
           <path
-            d="M 680,220 C 400,320 200,450 300,680 C 420,900 780,850 720,1080 C 650,1320 350,1380 450,1650 C 550,1850 620,1980 680,2120"
+            d="M 680,220 C 400,320 200,450 300,680 C 420,900 780,850 720,1080 C 650,1320 350,1380 450,1650 C 550,1850 620,1980 680,2060"
             fill="none"
             stroke="black"
             strokeWidth="2"

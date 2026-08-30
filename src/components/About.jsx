@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import mbPortrait from '../assets/MB.jpeg';
 import reactImage from '../assets/about/react.png';
 import nodeImage from '../assets/about/node.png';
@@ -14,15 +14,23 @@ const About = () => {
     offset: ["start end", "end start"]
   });
 
-  // Scroll-driven physical hanging physics for the lanyard + ID card assembly
-  const cardY = useTransform(scrollYProgress, [0, 0.35, 0.65, 1], [-90, 0, 15, 50]);
-  const cardRotate = useTransform(scrollYProgress, [0, 0.35, 0.65, 1], [-6, -2.5, 3, -1]);
-  const cardRotateY = useTransform(scrollYProgress, [0, 0.35, 0.65, 1], [-8, 0, 6, 0]);
-  const cardScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.93, 1, 1, 0.96]);
-  const cardOpacity = useTransform(scrollYProgress, [0, 0.25, 0.85, 1], [0.3, 1, 1, 0.6]);
+  // Physical spring interpolation for physical inertia and organic pendulum motion
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 70,
+    damping: 18,
+    restDelta: 0.001
+  });
+
+  // Scroll-driven hanging badge physics mapped continuously across scroll progress
+  const cardY = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-65, 0, 15, 40]);
+  const cardX = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-8, 0, 6, 0]);
+  const cardRotate = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-3.5, 1.8, -1.2, 0]);
+  const cardRotateY = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-6, 0, 4, 0]);
+  const cardScale = useTransform(smoothProgress, [0, 0.3, 0.7, 1], [0.96, 1, 1, 0.98]);
+  const cardOpacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0.75, 1, 1, 0.85]);
 
   // Subtle parallax for decorative stars
-  const starY = useTransform(scrollYProgress, [0, 1], [-15, 25]);
+  const starY = useTransform(smoothProgress, [0, 1], [-15, 25]);
 
   return (
     <section ref={aboutRef} id="about" className="bg-[#ff2a2a] pt-20 pb-36 px-6 md:px-12 w-full relative overflow-hidden font-sans">
@@ -46,6 +54,7 @@ const About = () => {
           
           <motion.div 
             style={{ 
+              x: cardX,
               y: cardY, 
               rotate: cardRotate, 
               rotateY: cardRotateY, 

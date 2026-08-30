@@ -52,7 +52,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="relative w-full bg-white py-24 md:py-32 overflow-hidden">
+    <section id="skills" className="relative w-full bg-white pt-8 md:pt-12 pb-24 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-60 pointer-events-none" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
