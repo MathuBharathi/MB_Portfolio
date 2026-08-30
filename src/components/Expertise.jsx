@@ -83,17 +83,17 @@ const Expertise = () => {
     <section
       id="expertise"
       ref={containerRef}
-      className="bg-white pt-24 pb-16 md:pb-20 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]"
+      className="bg-white pt-24 pb-16 md:pb-24 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]"
     >
-      <div className="max-w-6xl mx-auto relative md:min-h-[2100px]">
+      <div className="max-w-6xl mx-auto relative md:min-h-[2650px]">
 
-        {/* Header Content */}
+        {/* Header Content — Clean Top Header Block */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="md:absolute top-8 left-0 md:w-[480px] z-20 mb-16 md:mb-0"
+          className="w-full max-w-3xl z-20 mb-16 md:mb-20"
         >
           <div className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-xs font-['Fjalla_One'] text-gray-600 uppercase mb-6 shadow-sm bg-white tracking-widest">
             My Expertise
@@ -101,15 +101,15 @@ const Expertise = () => {
           <h2 className="text-3xl md:text-5xl lg:text-6xl text-gray-900 leading-[1.1] mb-6 tracking-tight relative font-['Fjalla_One'] uppercase">
             BUILDING MODERN DIGITAL SOLUTIONS WITH CODE & AI
           </h2>
-          <p className="text-gray-600 text-base md:text-lg max-w-md font-['Gilroy'] leading-relaxed">
+          <p className="text-gray-600 text-base md:text-lg max-w-2xl font-['Gilroy'] leading-relaxed">
             Combining full-stack development, artificial intelligence, and cloud technologies to create scalable and impactful digital experiences.
           </p>
         </motion.div>
 
         {/* Desktop SVG Animated Dashed Line with Arrowhead */}
         <svg
-          className="hidden md:block absolute top-0 left-0 w-full h-[2100px] pointer-events-none z-0"
-          viewBox="0 0 1000 2100"
+          className="hidden md:block absolute top-0 left-0 w-full h-[2650px] pointer-events-none z-0"
+          viewBox="0 0 1000 2650"
           preserveAspectRatio="none"
         >
           <defs>
@@ -127,7 +127,7 @@ const Expertise = () => {
           </defs>
 
           <path
-            d="M 460,340 C 560,280 620,180 680,180 C 520,380 320,480 420,580 C 560,700 740,860 660,1020 C 520,1180 320,1320 420,1460 C 540,1600 720,1760 640,1920"
+            d="M 480,210 C 600,240 760,280 720,440 C 580,620 280,750 360,900 C 520,1060 760,1200 700,1360 C 560,1520 280,1660 360,1820 C 520,1980 760,2140 680,2300"
             fill="none"
             stroke="#cbd5e1"
             strokeWidth="2"
@@ -136,7 +136,7 @@ const Expertise = () => {
 
           <mask id="path-mask">
             <motion.path
-              d="M 460,340 C 560,280 620,180 680,180 C 520,380 320,480 420,580 C 560,700 740,860 660,1020 C 520,1180 320,1320 420,1460 C 540,1600 720,1760 640,1920"
+              d="M 480,210 C 600,240 760,280 720,440 C 580,620 280,750 360,900 C 520,1060 760,1200 700,1360 C 560,1520 280,1660 360,1820 C 520,1980 760,2140 680,2300"
               fill="none"
               stroke="white"
               strokeWidth="20"
@@ -145,7 +145,7 @@ const Expertise = () => {
           </mask>
 
           <path
-            d="M 460,340 C 560,280 620,180 680,180 C 520,380 320,480 420,580 C 560,700 740,860 660,1020 C 520,1180 320,1320 420,1460 C 540,1600 720,1760 640,1920"
+            d="M 480,210 C 600,240 760,280 720,440 C 580,620 280,750 360,900 C 520,1060 760,1200 700,1360 C 560,1520 280,1660 360,1820 C 520,1980 760,2140 680,2300"
             fill="none"
             stroke="black"
             strokeWidth="2.5"
@@ -191,55 +191,55 @@ const Expertise = () => {
           />
         </svg>
 
-        {/* Cards Container */}
+        {/* Cards Container — Vertical Top-to-Bottom Sequence */}
         <div className="flex flex-col gap-8 md:gap-12 items-center md:block relative z-10 w-full pt-4 md:pt-0 pb-12 md:pb-0">
 
-          {/* Item 01 */}
+          {/* Item 01 (Frontend Development) */}
           <TagCard
             number="01"
             title={expertiseData[0].title}
             text={expertiseData[0].description}
-            className="md:absolute md:top-[10px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-3"
+            className="md:absolute md:top-[280px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-3"
             pathLength={pathLength}
             containerRef={containerRef}
           />
 
-          {/* Item 02 */}
+          {/* Item 02 (Backend Development) */}
           <TagCard
             number="02"
             title={expertiseData[1].title}
             text={expertiseData[1].description}
-            className="md:absolute md:top-[420px] md:left-[2%] lg:left-[5%] -rotate-1 md:-rotate-3"
+            className="md:absolute md:top-[740px] md:left-[2%] lg:left-[5%] -rotate-1 md:-rotate-3"
             pathLength={pathLength}
             containerRef={containerRef}
           />
 
-          {/* Item 03 */}
+          {/* Item 03 (AI-Powered Development) */}
           <TagCard
             number="03"
             title={expertiseData[2].title}
             text={expertiseData[2].description}
-            className="md:absolute md:top-[830px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-2"
+            className="md:absolute md:top-[1200px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-2"
             pathLength={pathLength}
             containerRef={containerRef}
           />
 
-          {/* Item 04 (Full 4-line description) */}
+          {/* Item 04 (AI-Assisted Applications) */}
           <TagCard
             number="04"
             title={expertiseData[3].title}
             text={expertiseData[3].description}
-            className="md:absolute md:top-[1250px] md:left-[5%] lg:left-[10%] -rotate-1 md:-rotate-2"
+            className="md:absolute md:top-[1660px] md:left-[2%] lg:left-[5%] -rotate-1 md:-rotate-2"
             pathLength={pathLength}
             containerRef={containerRef}
           />
 
-          {/* Item 05 (Clean 120px visual gap after Card 04) */}
+          {/* Item 05 (Cloud & Deployment) */}
           <TagCard
             number="05"
             title={expertiseData[4].title}
             text={expertiseData[4].description}
-            className="md:absolute md:top-[1760px] md:right-[5%] lg:right-[10%] rotate-1 md:rotate-2"
+            className="md:absolute md:top-[2140px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-2"
             pathLength={pathLength}
             containerRef={containerRef}
           />
