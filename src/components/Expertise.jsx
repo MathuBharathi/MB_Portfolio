@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { motion, useScroll, useSpring, useMotionValueEvent } from 'framer-motion';
 import { expertiseData } from '../data/portfolioData';
 
-const TagCard = ({ number, title, text, tagline, className, aosDelay, aosType, pathLength, containerRef }) => {
+const TagCard = ({ number, title, text, className, pathLength, containerRef }) => {
   const ref = useRef(null);
   const [isActive, setIsActive] = useState(false);
 
@@ -26,10 +26,12 @@ const TagCard = ({ number, title, text, tagline, className, aosDelay, aosType, p
   });
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      data-aos={aosType || "fade-up"}
-      data-aos-delay={aosDelay}
+      initial={{ opacity: 0.6, y: 35, scale: 0.97 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
       className={`w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-[2rem] p-2 relative flex flex-col items-center hover:scale-[1.01] transition-all duration-500 z-10 ${className} ${
         isActive ? 'bg-[#ff2a2a] border-red-400 shadow-[0_20px_50px_rgba(255,42,42,0.4)]' : 'bg-white border border-gray-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]'
       }`}
@@ -62,14 +64,8 @@ const TagCard = ({ number, title, text, tagline, className, aosDelay, aosType, p
             {text}
           </p>
         </div>
-
-        {tagline && (
-          <div className="mt-4 pt-3 border-t border-gray-300/40 font-['Caveat',cursive] text-xl text-[#ff2a2a] rotate-2">
-            {tagline}
-          </div>
-        )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -92,7 +88,13 @@ const Expertise = () => {
       <div className="max-w-6xl mx-auto relative md:min-h-[2100px]">
 
         {/* Header Content */}
-        <div data-aos="fade-up" className="md:absolute top-8 left-0 md:w-[480px] z-20 mb-16 md:mb-0">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="md:absolute top-8 left-0 md:w-[480px] z-20 mb-16 md:mb-0"
+        >
           <div className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-xs font-['Fjalla_One'] text-gray-600 uppercase mb-6 shadow-sm bg-white tracking-widest">
             My Expertise
           </div>
@@ -102,7 +104,7 @@ const Expertise = () => {
           <p className="text-gray-600 text-base md:text-lg max-w-md font-['Gilroy'] leading-relaxed">
             Combining full-stack development, artificial intelligence, and cloud technologies to create scalable and impactful digital experiences.
           </p>
-        </div>
+        </motion.div>
 
         {/* Desktop SVG Animated Dashed Line */}
         <svg
@@ -183,8 +185,6 @@ const Expertise = () => {
             title={expertiseData[0].title}
             text={expertiseData[0].description}
             className="md:absolute md:top-[10px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-3"
-            aosType="fade-left"
-            aosDelay="100"
             pathLength={pathLength}
             containerRef={containerRef}
           />
@@ -195,8 +195,6 @@ const Expertise = () => {
             title={expertiseData[1].title}
             text={expertiseData[1].description}
             className="md:absolute md:top-[420px] md:left-[2%] lg:left-[5%] -rotate-1 md:-rotate-3"
-            aosType="fade-right"
-            aosDelay="200"
             pathLength={pathLength}
             containerRef={containerRef}
           />
@@ -207,8 +205,6 @@ const Expertise = () => {
             title={expertiseData[2].title}
             text={expertiseData[2].description}
             className="md:absolute md:top-[830px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-2"
-            aosType="fade-left"
-            aosDelay="300"
             pathLength={pathLength}
             containerRef={containerRef}
           />
@@ -219,8 +215,6 @@ const Expertise = () => {
             title={expertiseData[3].title}
             text={expertiseData[3].description}
             className="md:absolute md:top-[1250px] md:left-[5%] lg:left-[10%] -rotate-1 md:-rotate-2"
-            aosType="fade-right"
-            aosDelay="400"
             pathLength={pathLength}
             containerRef={containerRef}
           />
@@ -231,8 +225,6 @@ const Expertise = () => {
             title={expertiseData[4].title}
             text={expertiseData[4].description}
             className="md:absolute md:top-[1760px] md:right-[5%] lg:right-[10%] rotate-1 md:rotate-2"
-            aosType="fade-left"
-            aosDelay="500"
             pathLength={pathLength}
             containerRef={containerRef}
           />
