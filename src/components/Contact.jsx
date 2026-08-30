@@ -2,6 +2,10 @@ import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { personalData } from '../data/portfolioData';
 
+// Google Apps Script Web App Endpoint Configuration
+// Paste your deployed Google Apps Script Web App URL below
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWLnrQ9AGPuh4MH4x79_m8ydvYAxDCaGl98iYR59jXPWixftp2pveaHeQIoxAmpfO7og/exec';
+
 const Contact = () => {
   const ref = useRef(null);
   
@@ -13,6 +17,9 @@ const Contact = () => {
     message: '',
     permission: false
   });
+
+  const [status, setStatus] = useState('IDLE'); // 'IDLE' | 'SUBMITTING' | 'SUCCESS' | 'ERROR'
+  const [statusMessage, setStatusMessage] = useState('');
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -27,42 +34,68 @@ const Contact = () => {
       ...prev,
       [id]: type === 'checkbox' ? checked : value
     }));
+
+    // Reset error state on edit
+    if (status === 'ERROR') {
+      setStatus('IDLE');
+      setStatusMessage('');
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.permission) {
-      alert("Please accept the contact permission checkbox.");
+      setStatus('ERROR');
+      setStatusMessage("Please accept the contact permission checkbox.");
       return;
     }
 
+    const name = `${formData.firstName.trim()} ${formData.lastName.trim()}`.trim();
+    if (!name || !formData.email.trim() || !formData.message.trim()) {
+      setStatus('ERROR');
+      setStatusMessage("Please fill in all required fields (Name, Email, Message).");
+      return;
+    }
+
+    setStatus('SUBMITTING');
+    setStatusMessage('');
+
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
+      const payload = new URLSearchParams();
+      payload.append('name', name);
+      payload.append('email', formData.email.trim());
+      payload.append('phone', formData.phone.trim());
+      payload.append('message', formData.message.trim());
+      payload.append('timestamp', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
+
+      if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
+        console.warn("GOOGLE_SCRIPT_URL is not set yet. Please follow setup instructions to deploy your Apps Script Web App URL.");
+      }
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
         },
-        body: JSON.stringify({
-          access_key: "6121fad0-efc7-43d8-99fd-6eaa3e488287", 
-          name: `${formData.firstName} ${formData.lastName}`,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-        }),
+        body: payload.toString(),
+        mode: 'no-cors',
       });
 
-      const result = await response.json();
-      if (result.success) {
-        alert(`Thanks ${formData.firstName}! Your message was sent successfully to Mathu Bharathi A.`);
-        setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '', permission: false });
-      } else {
-        alert("Something went wrong. Please try again or email directly.");
-      }
+      setStatus('SUCCESS');
+      setStatusMessage(`Thanks ${formData.firstName}! Your message was sent successfully to Mathu Bharathi A.`);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: '',
+        permission: false
+      });
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("Error sending message. Please try emailing directly.");
+      console.error("Error submitting contact form:", error);
+      setStatus('ERROR');
+      setStatusMessage("Something went wrong. Please try again or email directly.");
     }
   };
 
@@ -159,6 +192,19 @@ const Contact = () => {
               Send Message
             </div>
 
+            {statusMessage && (
+              <div 
+                className={`mb-6 p-4 rounded-xl text-xs md:text-sm font-['Gilroy'] flex items-center gap-3 transition-all ${
+                  status === 'SUCCESS' 
+                    ? 'bg-white/20 border border-white/40 text-white' 
+                    : 'bg-black/30 border border-black/40 text-white'
+                }`}
+              >
+                <i className={`text-lg ${status === 'SUCCESS' ? 'ri-checkbox-circle-fill text-white' : 'ri-error-warning-fill text-amber-300'}`}></i>
+                <span>{statusMessage}</span>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <input 
@@ -168,7 +214,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="First Name" 
                   required
-                  className="w-full bg-transparent border-b border-white/40 pb-2 text-base font-['Gilroy'] focus:outline-none focus:border-white transition-colors placeholder-white/70"
+                  className="w-full bg-transparent border-b border-white/40 pb-2 text-base font-['Gilroy'] text-white focus:outline-none focus:border-white transition-colors placeholder-white/70"
                 />
                 <input 
                   type="text" 
@@ -177,7 +223,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Last Name" 
                   required
-                  className="w-full bg-transparent border-b border-white/40 pb-2 text-base font-['Gilroy'] focus:outline-none focus:border-white transition-colors placeholder-white/70"
+                  className="w-full bg-transparent border-b border-white/40 pb-2 text-base font-['Gilroy'] text-white focus:outline-none focus:border-white transition-colors placeholder-white/70"
                 />
               </div>
 
@@ -189,7 +235,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Email Address" 
                   required
-                  className="w-full bg-transparent border-b border-white/40 pb-2 text-base font-['Gilroy'] focus:outline-none focus:border-white transition-colors placeholder-white/70"
+                  className="w-full bg-transparent border-b border-white/40 pb-2 text-base font-['Gilroy'] text-white focus:outline-none focus:border-white transition-colors placeholder-white/70"
                 />
                 <input 
                   type="tel" 
@@ -200,7 +246,7 @@ const Contact = () => {
                   pattern="[0-9]{10}"
                   maxLength="10"
                   required
-                  className="w-full bg-transparent border-b border-white/40 pb-2 text-base font-['Gilroy'] focus:outline-none focus:border-white transition-colors placeholder-white/70"
+                  className="w-full bg-transparent border-b border-white/40 pb-2 text-base font-['Gilroy'] text-white focus:outline-none focus:border-white transition-colors placeholder-white/70"
                 />
               </div>
 
@@ -211,7 +257,7 @@ const Contact = () => {
                 placeholder="Type your message here" 
                 required
                 rows={4}
-                className="w-full bg-transparent border-b border-white/40 pb-2 text-base font-['Gilroy'] focus:outline-none focus:border-white transition-colors placeholder-white/70 resize-none"
+                className="w-full bg-transparent border-b border-white/40 pb-2 text-base font-['Gilroy'] text-white focus:outline-none focus:border-white transition-colors placeholder-white/70 resize-none"
               ></textarea>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-4">
@@ -231,10 +277,20 @@ const Contact = () => {
 
                 <button 
                   type="submit" 
-                  className="px-8 py-3 rounded-full border border-white/50 text-white font-['Fjalla_One'] uppercase text-xs tracking-wider flex items-center gap-2 hover:bg-white hover:text-[#ff2a2a] transition-all duration-300 self-stretch sm:self-auto justify-center"
+                  disabled={status === 'SUBMITTING'}
+                  className="px-8 py-3 rounded-full border border-white/50 text-white font-['Fjalla_One'] uppercase text-xs tracking-wider flex items-center gap-2 hover:bg-white hover:text-[#ff2a2a] transition-all duration-300 self-stretch sm:self-auto justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
-                  <i className="ri-send-plane-fill"></i>
+                  {status === 'SUBMITTING' ? (
+                    <>
+                      SENDING...
+                      <i className="ri-loader-4-line animate-spin"></i>
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <i className="ri-send-plane-fill"></i>
+                    </>
+                  )}
                 </button>
               </div>
             </form>

@@ -258,3 +258,31 @@ body {
   }
 }
 
+/* Contact Form Input & Autofill Styling */
+#contact input,
+#contact textarea {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+#contact input:focus,
+#contact textarea:focus,
+#contact input:active,
+#contact textarea:active {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#contact input:-webkit-autofill,
+#contact input:-webkit-autofill:hover,
+#contact input:-webkit-autofill:focus,
+#contact textarea:-webkit-autofill,
+#contact textarea:-webkit-autofill:hover,
+#contact textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ff2a2a inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
