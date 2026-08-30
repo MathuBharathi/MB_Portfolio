@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Montserrat:wght@200;300;400;600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('./assets/fonts/Gilroy-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'GilroyT';
+  src: url('./assets/fonts/Gilroy-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'GilroyTI';
+  src: url('./assets/fonts/Gilroy-ThinItalic.ttf') format('truetype');
+}
+
+:root {
+  --hero-white: #dadada;
+  --hero-gray: #777;
+  --hero-graydark: #555;
+  --hero-black: #1a1818;
+}
+
+@theme {
+  --font-sans: "Satoshi", sans-serif;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+}
+
+[data-aos="drop-bounce"] {
+  opacity: 0;
+}
+[data-aos="drop-bounce"].aos-animate {
+  animation: dropBounce 1.2s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
+}
+
+@keyframes dropBounce {
+  0% { transform: translateY(-300px); opacity: 0; }
+  50% { transform: translateY(0); opacity: 1; }
+  65% { transform: translateY(-40px); opacity: 1; }
+  80% { transform: translateY(0); opacity: 1; }
+  90% { transform: translateY(-15px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Custom Cursor */
+#circle {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  background-color: #999;
+  z-index: 99999;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  display: grid;
+  place-items: center;
+}
+
+#circle p {
+  color: var(--hero-black);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  font-family: 'Gilroy', sans-serif;
+  white-space: nowrap;
+  text-align: center;
+  margin: 0;
+  font-weight: 600 !important;
+}
+
+#circle p span {
+  color: var(--hero-white);
+  font-family: 'Gilroy', sans-serif;
+}
+
+/* Underline Animations */
+.underlineW {
+  position: relative;
+}
+.underlineW::after {
+  content: "";
+  height: 1px;
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--hero-white);
+  transition: ease-in 0.15s;
+}
+.underlineW:hover::after {
+  width: 100%;
+}
+
+.underlineB {
+  position: relative;
+}
+.underlineB::after {
+  content: "";
+  height: 1px;
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--hero-black);
+  transition: ease-in 0.15s;
+}
+.underlineB:hover::after {
+  width: 100%;
+}
+
+/* Bounding containers for GSAP reveal animations */
+.bounding {
+  width: fit-content;
+  overflow: hidden;
+}
+
+.boundingelem {
+  transform: translateY(100%);
+  display: block;
+}
+
+.black-text {
+  color: var(--hero-black) !important;
+}
+
+/* Scoped Landing Page Layout */
+#landing-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--hero-white);
+  position: relative;
+  padding: 2vw 6vw 4vw 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+#landing-page .profile {
+  margin-top: 4vw;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 3.5vw;
+}
+
+#landing-page h1 {
+  color: var(--hero-gray);
+  font-size: 15vw;
+  font-family: 'Fjalla One', sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+#landing-page .profile-img {
+  width: 18vw;
+  height: 18vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8vw;
+  flex-shrink: 0;
+}
+
+#landing-page .profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 2px solid var(--hero-black);
+}
+
+@media (max-width: 768px) {
+  #circle {
+    display: none !important;
+  }
+
+  #landing-page {
+    padding: 110px 6vw 12vw 6vw;
+    min-height: 80vh;
+    justify-content: center;
+  }
+
+  #landing-page .profile {
+    margin-top: 10px;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 3vw;
+  }
+
+  #landing-page h1 {
+    font-size: 21vw;
+  }
+
+  #landing-page .profile-img {
+    width: 25vw;
+    height: 25vw;
+    margin-bottom: 0.5vw;
+  }
+
+  #landing-page .profile-img img {
+    border-radius: 12px;
+  }
+}
+
+@layer base {
+  /* Body Text -> Satoshi Regular (400) */
+  body, p, span, div, a {
+    font-weight: 400;
+  }
+
+  /* Section Headings -> Satoshi Bold (700) */
+  h2, h3, h4, h5, h6 {
+    font-weight: 700;
+  }
+
+  /* Navbar -> Satoshi Medium (500) */
+  nav, nav *, header *, #navbar * {
+    font-weight: 500;
+  }
+
+  /* Buttons -> Satoshi Medium (500) */
+  button, 
+  a[class*="px-"][class*="py-"], 
+  input[type="submit"], 
+  .btn {
+    font-weight: 500;
+  }
+}
+
