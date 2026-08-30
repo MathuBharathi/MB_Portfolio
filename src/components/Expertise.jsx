@@ -106,14 +106,28 @@ const Expertise = () => {
           </p>
         </motion.div>
 
-        {/* Desktop SVG Animated Dashed Line */}
+        {/* Desktop SVG Animated Dashed Line with Arrowhead */}
         <svg
           className="hidden md:block absolute top-0 left-0 w-full h-[2100px] pointer-events-none z-0"
           viewBox="0 0 1000 2100"
           preserveAspectRatio="none"
         >
+          <defs>
+            <marker
+              id="line-arrowhead"
+              viewBox="0 0 10 10"
+              refX="6"
+              refY="5"
+              markerWidth="6"
+              markerHeight="6"
+              orient="auto-start-reverse"
+            >
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#000000" />
+            </marker>
+          </defs>
+
           <path
-            d="M 680,220 C 400,320 200,450 300,680 C 420,900 780,850 720,1080 C 650,1320 350,1380 450,1650 C 550,1850 620,1980 680,2060"
+            d="M 460,340 C 560,280 620,180 680,180 C 520,380 320,480 420,580 C 560,700 740,860 660,1020 C 520,1180 320,1320 420,1460 C 540,1600 720,1760 640,1920"
             fill="none"
             stroke="#cbd5e1"
             strokeWidth="2"
@@ -122,7 +136,7 @@ const Expertise = () => {
 
           <mask id="path-mask">
             <motion.path
-              d="M 680,220 C 400,320 200,450 300,680 C 420,900 780,850 720,1080 C 650,1320 350,1380 450,1650 C 550,1850 620,1980 680,2060"
+              d="M 460,340 C 560,280 620,180 680,180 C 520,380 320,480 420,580 C 560,700 740,860 660,1020 C 520,1180 320,1320 420,1460 C 540,1600 720,1760 640,1920"
               fill="none"
               stroke="white"
               strokeWidth="20"
@@ -131,12 +145,13 @@ const Expertise = () => {
           </mask>
 
           <path
-            d="M 680,220 C 400,320 200,450 300,680 C 420,900 780,850 720,1080 C 650,1320 350,1380 450,1650 C 550,1850 620,1980 680,2060"
+            d="M 460,340 C 560,280 620,180 680,180 C 520,380 320,480 420,580 C 560,700 740,860 660,1020 C 520,1180 320,1320 420,1460 C 540,1600 720,1760 640,1920"
             fill="none"
             stroke="black"
-            strokeWidth="2"
+            strokeWidth="2.5"
             strokeDasharray="8 10"
             mask="url(#path-mask)"
+            markerEnd="url(#line-arrowhead)"
             className="drop-shadow-sm"
           />
         </svg>
