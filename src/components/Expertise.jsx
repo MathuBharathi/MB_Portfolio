@@ -156,36 +156,36 @@ const Expertise = () => {
           />
         </svg>
 
-        {/* Mobile Animated Vertical Dashed Line (Starts at/after Card 01) */}
+        {/* Mobile Animated Weaving Dashed Line */}
         <svg
-          className="md:hidden absolute top-[280px] bottom-16 left-[50%] -translate-x-1/2 w-4 pointer-events-none z-0"
-          viewBox="0 0 4 100"
+          className="md:hidden absolute top-[180px] bottom-12 left-0 w-full h-[calc(100%-200px)] pointer-events-none z-0"
+          viewBox="0 0 320 1000"
           preserveAspectRatio="none"
         >
           <path
-            d="M 2,0 L 2,100"
+            d="M 230,20 C 120,120 100,200 90,260 C 180,340 220,420 230,480 C 120,560 100,640 90,700 C 180,780 220,860 230,940"
             fill="none"
             stroke="#cbd5e1"
-            strokeWidth="4"
-            strokeDasharray="4 6"
+            strokeWidth="3"
+            strokeDasharray="5 7"
             vectorEffect="non-scaling-stroke"
           />
           <mask id="path-mask-mobile">
             <motion.path
-              d="M 2,0 L 2,100"
+              d="M 230,20 C 120,120 100,200 90,260 C 180,340 220,420 230,480 C 120,560 100,640 90,700 C 180,780 220,860 230,940"
               fill="none"
               stroke="white"
-              strokeWidth="4"
+              strokeWidth="12"
               style={{ pathLength }}
               vectorEffect="non-scaling-stroke"
             />
           </mask>
           <path
-            d="M 2,0 L 2,100"
+            d="M 230,20 C 120,120 100,200 90,260 C 180,340 220,420 230,480 C 120,560 100,640 90,700 C 180,780 220,860 230,940"
             fill="none"
             stroke="black"
-            strokeWidth="4"
-            strokeDasharray="4 6"
+            strokeWidth="3"
+            strokeDasharray="5 7"
             mask="url(#path-mask-mobile)"
             vectorEffect="non-scaling-stroke"
           />
