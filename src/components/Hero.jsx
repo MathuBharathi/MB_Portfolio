@@ -10,8 +10,11 @@ const fullText = "FULL STACK DEV.";
 const Hero = () => {
   const heroRef = useRef(null);
 
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [charIndex, setCharIndex] = useState(fullText.length);
+  // Animation states: 'TYPING_FORWARD' | 'STATIC' | 'DELETING_BACKWARD'
+  const [animState, setAnimState] = useState('TYPING_FORWARD');
+  const [charIndex, setCharIndex] = useState(0); // Starts at 0 to type on initial page load
+  const hasLeftHomeRef = useRef(false);
+
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
     if (typeof window === 'undefined') return false;
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -24,6 +27,7 @@ const Hero = () => {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
+  // GSAP Entrance & Scroll Background Effect
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 1.2 });
@@ -35,7 +39,6 @@ const Hero = () => {
         ease: 'expo.out'
       });
 
-      // Subtle background scroll transition
       gsap.to(heroRef.current, {
         backgroundColor: '#1a1818',
         ease: 'power3.out',
@@ -51,31 +54,60 @@ const Hero = () => {
     return () => ctx.revert();
   }, []);
 
+  // IntersectionObserver to detect when user leaves Home and returns to Home
+  useEffect(() => {
+    if (!heroRef.current || prefersReducedMotion) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            // User scrolled away from Home section
+            hasLeftHomeRef.current = true;
+          } else {
+            // User returned to Home section
+            if (hasLeftHomeRef.current && animState === 'STATIC') {
+              hasLeftHomeRef.current = false;
+              setAnimState('DELETING_BACKWARD');
+            }
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(heroRef.current);
+    return () => observer.disconnect();
+  }, [animState, prefersReducedMotion]);
+
+  // Typewriter state machine timer logic
   useEffect(() => {
     if (prefersReducedMotion) return;
 
     let timer;
 
-    if (!isDeleting && charIndex < fullText.length) {
-      timer = setTimeout(() => {
-        setCharIndex((prev) => prev + 1);
-      }, 110);
-    } else if (!isDeleting && charIndex === fullText.length) {
-      timer = setTimeout(() => {
-        setIsDeleting(true);
-      }, 2200);
-    } else if (isDeleting && charIndex > 0) {
-      timer = setTimeout(() => {
-        setCharIndex((prev) => prev - 1);
-      }, 65);
-    } else if (isDeleting && charIndex === 0) {
-      timer = setTimeout(() => {
-        setIsDeleting(false);
-      }, 700);
+    if (animState === 'TYPING_FORWARD') {
+      if (charIndex < fullText.length) {
+        timer = setTimeout(() => {
+          setCharIndex((prev) => prev + 1);
+        }, 100);
+      } else {
+        // Finished typing -> Stay STATIC until user leaves & returns
+        setAnimState('STATIC');
+      }
+    } else if (animState === 'DELETING_BACKWARD') {
+      if (charIndex > 0) {
+        timer = setTimeout(() => {
+          setCharIndex((prev) => prev - 1);
+        }, 60);
+      } else {
+        // Reached empty -> Immediately type forward
+        setAnimState('TYPING_FORWARD');
+      }
     }
 
     return () => clearTimeout(timer);
-  }, [charIndex, isDeleting, prefersReducedMotion]);
+  }, [charIndex, animState, prefersReducedMotion]);
 
   const displayedText = prefersReducedMotion ? fullText : fullText.slice(0, charIndex);
 
