@@ -32,7 +32,7 @@ const TagCard = ({ number, title, text, className, pathLength, containerRef }) =
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
-      className={`w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-[2rem] p-2 relative flex flex-col items-center hover:scale-[1.01] transition-all duration-500 z-10 ${className} ${
+      className={`w-full max-w-[300px] sm:max-w-md lg:max-w-lg rounded-[2rem] p-2 flex flex-col items-center hover:scale-[1.01] transition-all duration-500 z-10 ${className} ${
         isActive ? 'bg-[#ff2a2a] border-red-400 shadow-[0_20px_50px_rgba(255,42,42,0.4)]' : 'bg-white border border-gray-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]'
       }`}
     >
@@ -156,9 +156,9 @@ const Expertise = () => {
           />
         </svg>
 
-        {/* Mobile Animated Vertical Dashed Line */}
+        {/* Mobile Animated Vertical Dashed Line (Starts at/after Card 01) */}
         <svg
-          className="md:hidden absolute top-0 left-[50%] -translate-x-1/2 w-4 h-[100%] pointer-events-none z-0"
+          className="md:hidden absolute top-[280px] bottom-16 left-[50%] -translate-x-1/2 w-4 pointer-events-none z-0"
           viewBox="0 0 4 100"
           preserveAspectRatio="none"
         >
@@ -192,14 +192,14 @@ const Expertise = () => {
         </svg>
 
         {/* Cards Container */}
-        <div className="flex flex-col gap-8 md:gap-12 items-center md:block relative z-10 w-full pt-4 md:pt-0 pb-12 md:pb-0">
+        <div className="flex flex-col gap-8 md:gap-0 md:block relative z-10 w-full pt-4 md:pt-0 pb-12 md:pb-0 px-2 sm:px-0 overflow-x-hidden md:overflow-visible">
 
           {/* Item 01 */}
           <TagCard
             number="01"
             title={expertiseData[0].title}
             text={expertiseData[0].description}
-            className="md:absolute md:top-[10px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-3 max-w-sm sm:max-w-md lg:max-w-xl"
+            className="relative md:absolute md:top-[10px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-3 max-w-[300px] sm:max-w-md lg:max-w-xl self-end sm:self-auto"
             pathLength={pathLength}
             containerRef={containerRef}
           />
@@ -209,7 +209,7 @@ const Expertise = () => {
             number="02"
             title={expertiseData[1].title}
             text={expertiseData[1].description}
-            className="md:absolute md:top-[420px] md:left-[2%] lg:left-[5%] -rotate-1 md:-rotate-3"
+            className="relative md:absolute md:top-[420px] md:left-[2%] lg:left-[5%] -rotate-1 md:-rotate-3 max-w-[300px] sm:max-w-md lg:max-w-lg self-start sm:self-auto"
             pathLength={pathLength}
             containerRef={containerRef}
           />
@@ -219,7 +219,7 @@ const Expertise = () => {
             number="03"
             title={expertiseData[2].title}
             text={expertiseData[2].description}
-            className="md:absolute md:top-[830px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-2"
+            className="relative md:absolute md:top-[830px] md:right-[2%] lg:right-[5%] rotate-1 md:rotate-2 max-w-[300px] sm:max-w-md lg:max-w-lg self-end sm:self-auto"
             pathLength={pathLength}
             containerRef={containerRef}
           />
@@ -229,7 +229,7 @@ const Expertise = () => {
             number="04"
             title={expertiseData[3].title}
             text={expertiseData[3].description}
-            className="md:absolute md:top-[1250px] md:left-[5%] lg:left-[10%] -rotate-1 md:-rotate-2"
+            className="relative md:absolute md:top-[1250px] md:left-[5%] lg:left-[10%] -rotate-1 md:-rotate-2 max-w-[300px] sm:max-w-md lg:max-w-lg self-start sm:self-auto"
             pathLength={pathLength}
             containerRef={containerRef}
           />
@@ -239,7 +239,7 @@ const Expertise = () => {
             number="05"
             title={expertiseData[4].title}
             text={expertiseData[4].description}
-            className="md:absolute md:top-[1760px] md:right-[5%] lg:right-[10%] rotate-1 md:rotate-2"
+            className="relative md:absolute md:top-[1760px] md:right-[5%] lg:right-[10%] rotate-1 md:rotate-2 max-w-[300px] sm:max-w-md lg:max-w-lg self-end sm:self-auto"
             pathLength={pathLength}
             containerRef={containerRef}
           />

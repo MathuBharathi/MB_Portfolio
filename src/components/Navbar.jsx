@@ -88,9 +88,9 @@ const Navbar = () => {
                 key={item.name} 
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="font-['Fjalla_One'] text-2xl uppercase text-[#dadada] hover:text-white transition-colors"
+                className="font-['Fjalla_One'] text-xl sm:text-2xl uppercase text-[#dadada] hover:text-white transition-colors tracking-widest py-1"
               >
-                {item.name} <span className="font-['GilroyTI'] lowercase text-lg text-[#777]">({item.tag})</span>
+                {item.name}
               </a>
             ))}
           </div>
