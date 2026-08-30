@@ -1,13 +1,28 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import mbPortrait from '../assets/MB.jpeg';
 import { personalData, heroData } from '../data/portfolioData';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const fullText = "FULL STACK DEV.";
+
 const Hero = () => {
   const heroRef = useRef(null);
+
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [charIndex, setCharIndex] = useState(fullText.length);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  });
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const handleChange = (e) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -18,12 +33,7 @@ const Hero = () => {
         duration: 1.6,
         stagger: 0.2,
         ease: 'expo.out'
-      })
-      .to('.hero-profile-img', {
-        opacity: 1,
-        duration: 1.2,
-        ease: 'power2.out'
-      }, '-=1.2');
+      });
 
       // Subtle background scroll transition
       gsap.to(heroRef.current, {
@@ -41,6 +51,34 @@ const Hero = () => {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    let timer;
+
+    if (!isDeleting && charIndex < fullText.length) {
+      timer = setTimeout(() => {
+        setCharIndex((prev) => prev + 1);
+      }, 110);
+    } else if (!isDeleting && charIndex === fullText.length) {
+      timer = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2200);
+    } else if (isDeleting && charIndex > 0) {
+      timer = setTimeout(() => {
+        setCharIndex((prev) => prev - 1);
+      }, 65);
+    } else if (isDeleting && charIndex === 0) {
+      timer = setTimeout(() => {
+        setIsDeleting(false);
+      }, 700);
+    }
+
+    return () => clearTimeout(timer);
+  }, [charIndex, isDeleting, prefersReducedMotion]);
+
+  const displayedText = prefersReducedMotion ? fullText : fullText.slice(0, charIndex);
+
   return (
     <section id="home" ref={heroRef} className="w-full bg-[#dadada] transition-colors duration-300 relative">
       <div id="landing-page" className="flex flex-col justify-between">
@@ -50,24 +88,22 @@ const Hero = () => {
               <span className="black-text">MATHU</span>
             </h1>
           </div>
-          <div className="profile-img">
-            <img 
-              src={mbPortrait} 
-              alt={`${personalData.displayName} — ${personalData.primaryTitle}`} 
-              className="hero-profile-img opacity-0 transition-opacity"
-            />
-          </div>
         </div>
 
-        <div className="bounding elem2">
-          <h1 className="hero-boundingelem hero-bounding-elem">
-            FULL STACK <span className="hidden md:inline">DEV.</span>
-          </h1>
-        </div>
+        <div className="bounding elem2 relative">
+          <h1 className="hero-boundingelem hero-bounding-elem relative">
+            {/* Invisible placeholder maintaining exact layout dimensions */}
+            <span className="opacity-0 pointer-events-none select-none inline-block" aria-hidden="true">
+              FULL STACK DEV.
+            </span>
 
-        <div className="bounding elem3 md:hidden">
-          <h1 className="hero-boundingelem hero-bounding-elem">
-            DEV.
+            {/* Typewriter text overlay */}
+            <span className="red-text absolute left-0 top-0 inline-block whitespace-nowrap">
+              {displayedText}
+              {!prefersReducedMotion && (
+                <span className="typewriter-cursor ml-1">|</span>
+              )}
+            </span>
           </h1>
         </div>
 

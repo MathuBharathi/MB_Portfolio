@@ -145,6 +145,30 @@ body {
   color: var(--hero-black) !important;
 }
 
+.red-text {
+  color: #ff2a2a !important;
+}
+
+/* Typewriter Cursor & Animation */
+.typewriter-cursor {
+  color: #ff2a2a;
+  font-family: monospace;
+  font-weight: 300;
+  animation: typewriter-blink 0.8s step-end infinite;
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: 0.8;
+}
+
+@keyframes typewriter-blink {
+  from, to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 /* Scoped Landing Page Layout */
 #landing-page {
   min-height: 100vh;
