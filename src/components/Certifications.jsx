@@ -95,7 +95,7 @@ const Certifications = () => {
               {/* Issuer / Organization Column */}
               <div className="w-full lg:w-[20%] flex items-center">
                 <span className="text-xs md:text-sm font-['Gilroy'] text-gray-500 uppercase tracking-wider flex items-center gap-3">
-                  <span className="w-6 h-[2px] bg-gray-200 group-hover:bg-[#ff2a2a] transition-colors duration-300 hidden md:block"></span>
+                  <span className="w-6 h-0.5 bg-gray-200 group-hover:bg-[#ff2a2a] transition-colors duration-300 hidden md:block"></span>
                   {cert.issuer || cert.organization}
                 </span>
               </div>
@@ -171,7 +171,7 @@ const Certifications = () => {
               </div>
 
               {/* Certificate Preview Image Area */}
-              <div className="flex-1 overflow-auto p-4 md:p-6 bg-gray-900/5 flex items-center justify-center min-h-[300px] cert-preview-container [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              <div className="flex-1 overflow-auto p-4 md:p-6 bg-gray-900/5 flex items-center justify-center min-h-75 cert-preview-container scrollbar-none">
                 <img
                   src={selectedCert.preview}
                   alt={selectedCert.title}

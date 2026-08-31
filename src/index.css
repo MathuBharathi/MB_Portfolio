@@ -25,14 +25,14 @@
   --hero-black: #1a1818;
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
 @theme {
   --font-sans: "Satoshi", sans-serif;
   --animate-float: float 6s ease-in-out infinite;
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
 }
 
 html {
@@ -337,8 +337,13 @@ a[href*="netlify.com"][class*="badge"] {
 
 /* Certificate viewer modal preview container: hide scrollbar UI while preserving scroll */
 .cert-preview-container {
-  scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+@supports (scrollbar-width: none) {
+  .cert-preview-container {
+    scrollbar-width: none;
+  }
 }
 
 .cert-preview-container::-webkit-scrollbar {
