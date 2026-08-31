@@ -1,4 +1,13 @@
-// Single Source of Truth for Mathubharathi A Portfolio Data
+import introToCloudPdf from '../assets/certificates/Intro_to_Cloud-IBM.pdf';
+import introToCloudImg from '../assets/certificates/Intro_to_Cloud-IBM.png';
+import dataVizPdf from '../assets/certificates/TCS-Data_Visualization.pdf';
+import dataVizImg from '../assets/certificates/TCS-Data_Visualization.png';
+import genAiAnalyticsPdf from '../assets/certificates/TCS-GenAI_Data_Analytics.pdf';
+import genAiAnalyticsImg from '../assets/certificates/TCS-GenAI_Data_Analytics.png';
+import cloudFundamentalsPdf from '../assets/certificates/Cloud_Computing_Fundamentals-IBM.pdf';
+import cloudFundamentalsImg from '../assets/certificates/Cloud_Computing_Fundamentals-IBM.png';
+import bisInternshipPdf from '../assets/certificates/Internship-BIS.pdf';
+import bisInternshipImg from '../assets/certificates/Internship-BIS.png';
 
 export const personalData = {
   name: "MATHUBHARATHI A",
@@ -196,44 +205,54 @@ export const projectsData = [
 export const certificationsData = [
   {
     id: "01",
-    title: "Bureau of Indian Standards (BIS) — Internship",
-    organization: "BIS Headquarters, New Delhi",
-    committee: "MHD-14 Committee",
-    date: "2024",
-    duration: "Internship",
-    description: "Worked on a pre-standardization draft for Pneumatic Tube Transport Systems (PTS) in healthcare facilities. Analyzed technical specifications, safety requirements, operational workflows, and formal government documentation.",
+    title: "Introduction to Cloud",
+    organization: "IBM SkillsBuild",
+    issuer: "IBM SkillsBuild",
+    date: "November 20, 2025",
+    description: "Completed foundational cloud training covering cloud computing concepts, IaaS, PaaS, SaaS delivery models, and core cloud infrastructure architecture.",
+    file: introToCloudPdf,
+    preview: introToCloudImg,
   },
   {
     id: "02",
-    title: "Young Creators Program",
-    organization: "Zoho Corporation Pvt. Ltd., Chennai",
-    date: "November 2024",
-    duration: "03 Days",
-    description: "Certified hands-on training in creating low-code mobile applications.",
+    title: "Data Visualisation: Empowering Business with Effective Insights",
+    organization: "Forage / TATA",
+    issuer: "Forage / TATA",
+    date: "December 22, 2025",
+    description: "Completed practical job simulation tasks in framing business scenarios, selecting visual representations, creating effective dashboards, and communicating insights to executive leadership.",
+    file: dataVizPdf,
+    preview: dataVizImg,
   },
   {
     id: "03",
-    title: "Cloud Computing Program",
-    organization: "IBM SkillsBuild",
-    date: "November 2025",
-    duration: "4 days",
-    description: "Introduction & Fundamentals of Cloud, covering foundational cloud computing concepts, IaaS, PaaS, SaaS and basic cloud architecture.",
+    title: "GenAI Powered Data Analytics Job Simulation",
+    organization: "Forage / TATA",
+    issuer: "Forage / TATA",
+    date: "December 21, 2025",
+    description: "Completed practical job simulation tasks in exploratory data analysis, risk profiling, AI-assisted delinquency prediction, business report storytelling, and AI-driven collection strategies.",
+    file: genAiAnalyticsPdf,
+    preview: genAiAnalyticsImg,
   },
   {
     id: "04",
-    title: "GenAI Powered Data Analytics Job Simulation",
-    organization: "TCS / Forage",
-    date: "2025",
-    duration: "Simulation",
-    description: "Data analysis, dashboard creation and GenAI-assisted insights for data-driven decision making.",
+    title: "Cloud Computing Fundamentals",
+    organization: "IBM SkillsBuild",
+    issuer: "IBM SkillsBuild",
+    date: "November 21, 2025",
+    description: "Earned Credly-verified certification in Cloud Computing Fundamentals, validating core knowledge of cloud infrastructure, virtualization, cloud security, and deployment models.",
+    file: cloudFundamentalsPdf,
+    preview: cloudFundamentalsImg,
+    verificationUrl: "https://www.credly.com/badges/9f21dacc-d6d5-48cc-862c-9bba590b516c",
   },
   {
     id: "05",
-    title: "Tata – Data Visualisation: Empowering Business with Effective Insights",
-    organization: "Tata / Forage",
-    date: "December 2025",
-    duration: "Simulation",
-    description: "Data visualization, dashboard design, and translating complex data into actionable business insights.",
+    title: "Bureau of Indian Standards (BIS) — Internship",
+    organization: "Bureau of Indian Standards",
+    issuer: "Bureau of Indian Standards",
+    date: "July 7, 2025 – August 29, 2025",
+    description: "Completed government internship under the Medical Equipment and Hospital Planning Department, studying Pneumatic Transport Systems (PTS) and healthcare risk management.",
+    file: bisInternshipPdf,
+    preview: bisInternshipImg,
   },
 ];
 
