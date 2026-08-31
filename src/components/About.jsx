@@ -22,12 +22,12 @@ const About = () => {
   });
 
   // Scroll-driven hanging badge physics mapped continuously across scroll progress
-  const cardY = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-65, 0, 15, 40]);
+  const cardY = useTransform(smoothProgress, [0, 0.15, 0.35, 0.65, 1], [30, 0, 0, 15, 40]);
   const cardX = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-8, 0, 6, 0]);
   const cardRotate = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-3.5, 1.8, -1.2, 0]);
   const cardRotateY = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-6, 0, 4, 0]);
   const cardScale = useTransform(smoothProgress, [0, 0.3, 0.7, 1], [0.96, 1, 1, 0.98]);
-  const cardOpacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0.75, 1, 1, 0.85]);
+  const cardOpacity = useTransform(smoothProgress, [0, 0.08, 0.25, 0.8, 1], [0, 0.5, 1, 1, 0.85]);
 
   // Subtle parallax for decorative stars
   const starY = useTransform(smoothProgress, [0, 1], [-15, 25]);
