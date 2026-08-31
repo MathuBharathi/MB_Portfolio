@@ -8,7 +8,7 @@ import { personalData, aboutData } from '../data/portfolioData';
 
 const About = () => {
   const aboutRef = useRef(null);
-  const isInView = useInView(aboutRef, { amount: 0.15, once: false });
+  const isInView = useInView(aboutRef, { amount: 0.25, once: false });
 
   const { scrollYProgress } = useScroll({
     target: aboutRef,
@@ -54,12 +54,12 @@ const About = () => {
           
           {/* Drop Entrance Motion Container */}
           <motion.div
-            initial={{ y: -260, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: -260, opacity: 0 }}
+            initial={{ y: -300, opacity: 0 }}
+            animate={isInView ? { y: 0, opacity: 1 } : { y: -300, opacity: 0 }}
             transition={{
               type: "spring",
-              stiffness: 170,
-              damping: 14,
+              stiffness: 180,
+              damping: 15,
               mass: 0.85
             }}
             className="w-full flex flex-col items-center"
