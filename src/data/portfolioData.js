@@ -21,11 +21,7 @@ export const heroData = {
 };
 
 export const aboutData = {
-  lead: "I'm Mathu Bharathi A, a Full Stack Developer and Biomedical Engineer passionate about building modern, responsive and user-focused digital experiences.",
-  paragraph1: "I work across frontend development, backend integration, databases, authentication, APIs and deployment, while also focusing strongly on UI/UX and interactive design.",
-  paragraph2: "My projects span multiple domains including e-commerce, travel, tourism, appointment management, online booking, biomedical events and AI-assisted healthcare documentation.",
-  paragraph3: "I enjoy transforming ideas into complete digital products — from designing intuitive interfaces to implementing functional backend systems, integrating APIs and deploying production-ready applications.",
-  quote: "\"Building digital experiences at the intersection of Code, Design, and Healthcare Technology.\"",
+  content: "I’m Mathubharathi A, a Full-Stack Developer and Biomedical Engineer focused on building responsive, user-centered digital products from concept to deployment. I work across frontend development, backend integration, databases, authentication, APIs, and interactive experiences, with a strong emphasis on clean UI/UX, reliable functionality, and practical solutions. Combining my technical experience with a Biomedical Engineering background, I bring a multidisciplinary approach to solving real-world problems and transforming ideas into meaningful, scalable web experiences.",
 };
 
 export const expertiseData = [

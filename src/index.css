@@ -171,11 +171,11 @@ body {
 
 /* Scoped Landing Page Layout */
 #landing-page {
-  min-height: 100vh;
+  min-height: 88vh;
   width: 100%;
   background-color: var(--hero-white);
   position: relative;
-  padding: 2vw 6vw 4vw 6vw;
+  padding: 2vw 6vw 2.5vw 6vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -240,8 +240,8 @@ body {
   }
 
   #landing-page {
-    padding: 100px 5vw 10vw 5vw;
-    min-height: 85vh;
+    padding: 95px 5vw 7vw 5vw;
+    min-height: 80vh;
     justify-content: center;
   }
 

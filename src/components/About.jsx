@@ -33,7 +33,7 @@ const About = () => {
   const starY = useTransform(smoothProgress, [0, 1], [-15, 25]);
 
   return (
-    <section ref={aboutRef} id="about" className="bg-[#ff2a2a] pt-20 pb-36 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section ref={aboutRef} id="about" className="bg-[#ff2a2a] pt-16 md:pt-20 pb-20 md:pb-24 px-6 md:px-12 w-full relative overflow-hidden font-sans">
       
       {/* Decorative 4-Point Accent Stars */}
       <motion.div style={{ y: starY }} className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 text-black/25 z-10 pointer-events-none">
@@ -124,20 +124,8 @@ const About = () => {
             HELLO!
           </h2>
 
-          <p className="text-lg md:text-xl font-['Gilroy'] mb-6 leading-relaxed max-w-3xl text-red-50">
-            I'm <span className="text-black font-bold mx-1 tracking-wide uppercase">{personalData.name}</span>, a Full Stack Developer and Biomedical Engineer dedicated to building modern, responsive, and user-focused digital experiences.
-          </p>
-
-          <p className="text-base font-['Gilroy'] mb-4 leading-relaxed text-red-100/90">
-            {aboutData.paragraph1}
-          </p>
-
-          <p className="text-base font-['Gilroy'] mb-4 leading-relaxed text-red-100/90">
-            {aboutData.paragraph2}
-          </p>
-
-          <p className="text-base font-['Gilroy'] mb-8 leading-relaxed text-red-100/90">
-            {aboutData.paragraph3}
+          <p className="text-base md:text-lg font-['Gilroy'] mb-8 leading-relaxed max-w-3xl text-red-50">
+            {aboutData.content}
           </p>
 
           {/* Tech Row */}
