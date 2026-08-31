@@ -151,13 +151,13 @@ body {
 
 /* Typewriter Cursor & Animation */
 .typewriter-cursor {
-  color: #ff2a2a;
-  font-family: monospace;
-  font-weight: 300;
-  animation: typewriter-blink 0.8s step-end infinite;
   display: inline-block;
+  width: 3px;
+  height: 0.78em;
+  background-color: #ff2a2a;
   vertical-align: baseline;
-  line-height: 0.8;
+  margin-left: 0.18em;
+  animation: typewriter-blink 0.8s step-end infinite;
 }
 
 @keyframes typewriter-blink {
@@ -194,11 +194,11 @@ body {
 
 #landing-page h1 {
   color: var(--hero-gray);
-  font-size: 15vw;
+  font-size: 11.8vw;
   font-family: 'Fjalla One', sans-serif !important;
   font-weight: 400 !important;
   line-height: 0.95;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   margin: 0;
 }
@@ -224,14 +224,24 @@ body {
   border: 2px solid var(--hero-black);
 }
 
+.mobile-hero-break {
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .mobile-hero-break {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px) {
   #circle {
     display: none !important;
   }
 
   #landing-page {
-    padding: 110px 6vw 12vw 6vw;
-    min-height: 80vh;
+    padding: 100px 5vw 10vw 5vw;
+    min-height: 85vh;
     justify-content: center;
   }
 
@@ -243,7 +253,8 @@ body {
   }
 
   #landing-page h1 {
-    font-size: 21vw;
+    font-size: clamp(2.4rem, 13vw, 5.2rem);
+    line-height: 0.95;
   }
 
   #landing-page .profile-img {

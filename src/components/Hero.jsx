@@ -14,6 +14,7 @@ const Hero = () => {
   const [animState, setAnimState] = useState('TYPING_FORWARD');
   const [charIndex, setCharIndex] = useState(0); // Starts at 0 to type on initial page load
   const hasLeftHomeRef = useRef(false);
+  const isInitialMountRef = useRef(true);
 
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
     if (typeof window === 'undefined') return false;
@@ -88,21 +89,32 @@ const Hero = () => {
 
     if (animState === 'TYPING_FORWARD') {
       if (charIndex < fullText.length) {
+        // Initial page load delay to allow preloader & GSAP entrance reveal before typing begins
+        const delay = (isInitialMountRef.current && charIndex === 0) ? 1600 : 100;
         timer = setTimeout(() => {
-          setCharIndex((prev) => prev + 1);
-        }, 100);
-      } else {
-        // Finished typing -> Stay STATIC until user leaves & returns
-        setAnimState('STATIC');
+          if (isInitialMountRef.current && charIndex === 0) {
+            isInitialMountRef.current = false;
+          }
+          setCharIndex((prev) => {
+            const next = prev + 1;
+            if (next >= fullText.length) {
+              setAnimState('STATIC');
+            }
+            return next;
+          });
+        }, delay);
       }
     } else if (animState === 'DELETING_BACKWARD') {
       if (charIndex > 0) {
         timer = setTimeout(() => {
-          setCharIndex((prev) => prev - 1);
+          setCharIndex((prev) => {
+            const next = prev - 1;
+            if (next <= 0) {
+              setAnimState('TYPING_FORWARD');
+            }
+            return next;
+          });
         }, 60);
-      } else {
-        // Reached empty -> Immediately type forward
-        setAnimState('TYPING_FORWARD');
       }
     }
 
@@ -110,6 +122,9 @@ const Hero = () => {
   }, [charIndex, animState, prefersReducedMotion]);
 
   const displayedText = prefersReducedMotion ? fullText : fullText.slice(0, charIndex);
+  const part1 = displayedText.slice(0, 11);
+  const part2 = displayedText.slice(11);
+  const showBreak = prefersReducedMotion || charIndex > 10;
 
   return (
     <section id="home" ref={heroRef} className="w-full bg-[#dadada] transition-colors duration-300 relative">
@@ -125,15 +140,26 @@ const Hero = () => {
         <div className="bounding elem2 relative">
           <h1 className="hero-boundingelem hero-bounding-elem relative">
             {/* Invisible placeholder maintaining exact layout dimensions */}
-            <span className="opacity-0 pointer-events-none select-none inline-block" aria-hidden="true">
-              FULL STACK DEV.
+            <span className="opacity-0 pointer-events-none select-none block md:inline-block" aria-hidden="true">
+              FULL STACK<br className="mobile-hero-break" />DEV.
             </span>
 
             {/* Typewriter text overlay */}
-            <span className="red-text absolute left-0 top-0 inline-block whitespace-nowrap">
-              {displayedText}
+            <span className="red-text absolute left-0 top-0 w-full block md:inline-block md:whitespace-nowrap">
+              {/* Mobile split rendering */}
+              <span className="inline md:hidden">
+                <span>{part1}</span>
+                {showBreak && <br className="mobile-hero-break" />}
+                <span>{part2}</span>
+              </span>
+
+              {/* Desktop single continuous text run */}
+              <span className="hidden md:inline">
+                {displayedText}
+              </span>
+
               {!prefersReducedMotion && (
-                <span className="typewriter-cursor ml-1">|</span>
+                <span className="typewriter-cursor" aria-hidden="true" />
               )}
             </span>
           </h1>
