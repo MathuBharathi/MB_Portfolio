@@ -23,7 +23,7 @@ const About = () => {
   });
 
   // Scroll-driven hanging badge physics mapped continuously across scroll progress
-  const cardY = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [0, 0, 10, 20]);
+  const cardY = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-35, -35, -20, -10]);
   const cardX = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-8, 0, 6, 0]);
   const cardRotate = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-3.5, 1.8, -1.2, 0]);
   const cardRotateY = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-6, 0, 4, 0]);
