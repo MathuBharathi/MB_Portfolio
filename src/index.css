@@ -334,3 +334,13 @@ a[href*="netlify.com"][class*="badge"] {
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+/* Certificate viewer modal preview container: hide scrollbar UI while preserving scroll */
+.cert-preview-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cert-preview-container::-webkit-scrollbar {
+  display: none;
+}

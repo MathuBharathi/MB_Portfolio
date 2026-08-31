@@ -171,7 +171,7 @@ const Certifications = () => {
               </div>
 
               {/* Certificate Preview Image Area */}
-              <div className="flex-1 overflow-auto p-4 md:p-6 bg-gray-900/5 flex items-center justify-center min-h-[300px]">
+              <div className="flex-1 overflow-auto p-4 md:p-6 bg-gray-900/5 flex items-center justify-center min-h-[300px] cert-preview-container [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                 <img
                   src={selectedCert.preview}
                   alt={selectedCert.title}

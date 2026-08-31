@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useInView, useMotionValue } from 'framer-motion';
 import mbPortrait from '../assets/MB.jpeg';
 import reactImage from '../assets/about/react.png';
 import nodeImage from '../assets/about/node.png';
@@ -28,6 +28,51 @@ const About = () => {
   const cardRotate = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-3.5, 1.8, -1.2, 0]);
   const cardRotateY = useTransform(smoothProgress, [0, 0.35, 0.65, 1], [-6, 0, 4, 0]);
   const cardScale = useTransform(smoothProgress, [0, 0.3, 0.7, 1], [0.96, 1, 1, 0.98]);
+
+  // Mouse hover swing interaction motion values & spring dynamics
+  const rawMouseRotate = useMotionValue(0);
+  const rawMouseRotateY = useMotionValue(0);
+  const rawMouseX = useMotionValue(0);
+
+  const mouseRotate = useSpring(rawMouseRotate, { stiffness: 120, damping: 18 });
+  const mouseRotateY = useSpring(rawMouseRotateY, { stiffness: 120, damping: 18 });
+  const mouseX = useSpring(rawMouseX, { stiffness: 120, damping: 18 });
+
+  // Seamlessly combine scroll-driven transforms with mouse-driven transforms
+  const finalRotate = useTransform(
+    [cardRotate, mouseRotate],
+    ([scrollR, mouseR]) => scrollR + mouseR
+  );
+
+  const finalRotateY = useTransform(
+    [cardRotateY, mouseRotateY],
+    ([scrollRY, mouseRY]) => scrollRY + mouseRY
+  );
+
+  const finalX = useTransform(
+    [cardX, mouseX],
+    ([scrollX, mouseShiftX]) => scrollX + mouseShiftX
+  );
+
+  const handleMouseMove = (e) => {
+    // Only apply on non-touch pointer devices
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const normalizedX = (e.clientX - centerX) / (rect.width / 2);
+    const clampedX = Math.max(-1, Math.min(1, normalizedX));
+
+    rawMouseRotate.set(clampedX * 7);
+    rawMouseRotateY.set(clampedX * 5);
+    rawMouseX.set(clampedX * 4);
+  };
+
+  const handleMouseLeave = () => {
+    rawMouseRotate.set(0);
+    rawMouseRotateY.set(0);
+    rawMouseX.set(0);
+  };
 
   // Subtle parallax for decorative stars
   const starY = useTransform(smoothProgress, [0, 1], [-15, 25]);
@@ -65,15 +110,17 @@ const About = () => {
             className="w-full flex flex-col items-center"
           >
             <motion.div 
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
               style={{ 
-                x: cardX,
+                x: finalX,
                 y: cardY, 
-                rotate: cardRotate, 
-                rotateY: cardRotateY, 
+                rotate: finalRotate, 
+                rotateY: finalRotateY, 
                 scale: cardScale, 
                 transformPerspective: 1000 
               }}
-              className="relative flex flex-col items-center w-full origin-top"
+              className="relative flex flex-col items-center w-full origin-top cursor-pointer"
             >
               
               {/* Lanyard Fabric Strap (Hanging down from section top) */}
