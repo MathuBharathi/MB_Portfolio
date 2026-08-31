@@ -50,7 +50,7 @@ const About = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-16 items-center relative z-20 -mt-6 md:-mt-10">
         
         {/* Left Side: Restored Shajith ID Card / Lanyard Composition with Scroll-Driven Motion */}
-        <div className="flex flex-col items-center w-full md:w-[340px] shrink-0 mt-2 md:mt-0">
+        <div className="flex flex-col items-center w-full md:w-85 shrink-0 mt-2 md:mt-0">
           
           {/* Drop Entrance Motion Container */}
           <motion.div
@@ -80,18 +80,18 @@ const About = () => {
               <div className="w-7 h-28 bg-[#1a1a1a] shadow-[inset_0_2px_8px_rgba(0,0,0,0.6)] z-0 rounded-b-sm border-x border-black/40"></div>
               
               {/* Metal Ring Hardware */}
-              <div className="w-8 h-8 rounded-full border-4 border-gray-300 bg-gradient-to-b from-gray-200 via-gray-400 to-gray-600 shadow-md -mt-2 z-10 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full border-4 border-gray-300 bg-linear-to-b from-gray-200 via-gray-400 to-gray-600 shadow-md -mt-2 z-10 flex items-center justify-center">
                 <div className="w-3 h-3 bg-black/60 rounded-full"></div>
               </div>
               
               {/* Metal Carabiner Clip Connector */}
-              <div className="w-6 h-10 bg-gradient-to-b from-gray-200 via-gray-400 to-gray-500 rounded-md border border-gray-300 shadow-[0_4px_12px_rgba(0,0,0,0.3)] -mt-1 z-10 flex flex-col items-center justify-between p-1">
+              <div className="w-6 h-10 bg-linear-to-b from-gray-200 via-gray-400 to-gray-500 rounded-md border border-gray-300 shadow-[0_4px_12px_rgba(0,0,0,0.3)] -mt-1 z-10 flex flex-col items-center justify-between p-1">
                 <div className="w-4 h-1.5 bg-gray-600 rounded-sm"></div>
                 <div className="w-3 h-3 border-2 border-gray-700 rounded-full"></div>
               </div>
               
               {/* Hanging ID Card Frame */}
-              <div className="bg-[#141414] border-2 border-black/60 w-full max-w-[310px] rounded-[2.2rem] p-4 shadow-[0_30px_70px_rgba(0,0,0,0.55)] relative z-20 hover:rotate-0 transition-transform duration-500 -mt-2">
+              <div className="bg-[#141414] border-2 border-black/60 w-full max-w-77.5 rounded-[2.2rem] p-4 shadow-[0_30px_70px_rgba(0,0,0,0.55)] relative z-20 hover:rotate-0 transition-transform duration-500 -mt-2">
                 
                 {/* Card Grommet Tab */}
                 <div className="absolute -top-3 left-1/2 w-14 h-5 bg-[#141414] rounded-t-xl transform -translate-x-1/2 flex justify-center items-center border-t border-x border-black/60">
@@ -99,7 +99,7 @@ const About = () => {
                 </div>
 
                 {/* Upper Profile Image Container */}
-                <div className="w-full aspect-[4/5] overflow-hidden rounded-2xl bg-gray-900 border border-white/10 shadow-inner">
+                <div className="w-full aspect-4/5 overflow-hidden rounded-2xl bg-gray-900 border border-white/10 shadow-inner">
                   <img 
                     src={mbPortrait} 
                     alt={`${personalData.displayName} — ${personalData.primaryTitle}`}

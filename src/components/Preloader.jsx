@@ -50,15 +50,15 @@ const Preloader = () => {
   if (isFinished) return null;
 
   return (
-    <div ref={containerRef} className="fixed inset-0 pointer-events-none z-[999999]">
+    <div ref={containerRef} className="fixed inset-0 pointer-events-none z-999999">
       {/* Panel 1 (Bottom layer) */}
-      <div className="loader1 fixed top-0 left-0 w-full h-screen bg-[#1a1818] z-[1000] overflow-hidden"></div>
+      <div className="loader1 fixed top-0 left-0 w-full h-screen bg-[#1a1818] z-1000 overflow-hidden"></div>
 
       {/* Panel 2 (Middle layer) */}
-      <div className="loader2 fixed top-0 left-0 w-full h-screen bg-[#777] z-[1001] overflow-hidden"></div>
+      <div className="loader2 fixed top-0 left-0 w-full h-screen bg-[#777] z-1001 overflow-hidden"></div>
 
       {/* Panel 3 (Top layer with Content) */}
-      <div className="loader3 fixed top-0 left-0 w-full h-screen bg-[#dadada] z-[1002] flex items-center justify-center gap-4 overflow-hidden pointer-events-auto">
+      <div className="loader3 fixed top-0 left-0 w-full h-screen bg-[#dadada] z-1002 flex items-center justify-center gap-4 overflow-hidden pointer-events-auto">
         <div className="bounding border-r-2 border-[#1a1818] pr-4 overflow-hidden">
           <img 
             src={logoImg} 
