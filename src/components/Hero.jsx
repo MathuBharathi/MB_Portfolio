@@ -141,7 +141,7 @@ const Hero = () => {
           <h1 className="hero-boundingelem hero-bounding-elem relative">
             {/* Invisible placeholder maintaining exact layout dimensions */}
             <span className="opacity-0 pointer-events-none select-none block md:inline-block" aria-hidden="true">
-              FULL STACK<br className="mobile-hero-break" />DEV.
+              FULL STACK <br className="mobile-hero-break" />DEV.&nbsp;
             </span>
 
             {/* Typewriter text overlay */}
