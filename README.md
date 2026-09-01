@@ -1,16 +1,126 @@
-# React + Vite
+# MATHUBHARATHI A — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Full-Stack Developer Portfolio** showcasing my technical skills, professional background, certifications, and experience in building responsive, user-focused digital products.
 
-Currently, two official plugins are available:
+[React](https://react.dev/)
+[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[Vite](https://vite.dev/)
+[Netlify](https://www.netlify.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+# 🚀 Live Website
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🌐 https://mathubharathi-portfolio.netlify.app/
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# 📖 About
+
+MATHUBHARATHI A is a **Full-Stack Developer and Biomedical Engineer** focused on building responsive, user-centered digital products from concept to deployment.
+
+The portfolio showcases my expertise in frontend development, backend integration, databases, authentication, APIs, UI/UX, interactive experiences, certifications, and professional background.
+
+---
+
+# ✨ Features
+
+- 💻 Full-Stack Development Portfolio
+- 🎨 Modern UI/UX Design
+- 📱 Fully Responsive Design
+- ⚡ Interactive Web Experiences
+- 🧩 Frontend & Backend Integration
+- 🔐 Authentication & API Integration
+- 🗄️ Database Integration
+- 📜 Certifications Showcase
+- 👨‍💻 Professional Experience
+- 📄 Resume Download
+- 🌐 Production Deployment
+
+---
+
+# 🛠 Tech Stack
+
+| **Technology** | **Usage** |
+|----------------|-----------|
+| React | User Interface |
+| JavaScript | Application Development |
+| HTML | Structure |
+| CSS | Styling & Responsive Design |
+| Vite | Development & Build Tool |
+| Git | Version Control |
+| GitHub | Source Code Management |
+| Netlify | Deployment & Hosting |
+
+---
+
+# 📂 Project Structure
+
+```text
+MB_Portfolio/
+│
+├── public/
+│   └── ...
+│
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── data/
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+│
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
+````
+
+---
+
+# 🎯 Key Highlights
+
+✅ Full-Stack Developer Portfolio
+
+✅ Responsive & Modern UI/UX
+
+✅ Interactive Web Experiences
+
+✅ Frontend & Backend Development
+
+✅ API & Database Integration
+
+✅ Authentication
+
+✅ Certifications Showcase
+
+✅ Resume Integration
+
+✅ Mobile & Desktop Responsive
+
+✅ Netlify Production Deployment
+
+---
+
+# 👨‍💻 Developed By
+
+**Mathubharathi A**
+
+Biomedical Engineer • Full Stack Developer • Graphic Designer
+
+### 🌐 Portfolio
+
+[https://mathubharathi-portfolio.netlify.app/](https://mathubharathi-portfolio.netlify.app/)
+
+---
+
+# 📄 License
+
+This project is developed for portfolio and professional showcase purposes.
+
+© 2026 Mathubharathi A. All Rights Reserved.
+
+```
