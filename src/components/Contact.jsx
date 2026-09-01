@@ -107,9 +107,9 @@ const Contact = () => {
         style={{ y }}
         className="absolute top-0 left-0 w-full h-full flex flex-col justify-start items-center overflow-hidden pointer-events-none z-0 pt-16 md:pt-12"
       >
-        <h1 className="text-[15vw] md:text-[12vw] leading-[0.8] text-white/10 uppercase tracking-tighter select-none origin-top font-['Fjalla_One']">
+        <div className="text-[15vw] md:text-[12vw] leading-[0.8] text-white/10 uppercase tracking-tighter select-none origin-top font-['Fjalla_One']" aria-hidden="true">
           Contact
-        </h1>
+        </div>
       </motion.div>
 
       {/* Main Content Area */}

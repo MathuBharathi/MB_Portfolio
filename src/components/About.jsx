@@ -149,16 +149,16 @@ const About = () => {
                 <div className="w-full aspect-4/5 overflow-hidden rounded-2xl bg-gray-900 border border-white/10 shadow-inner">
                   <img 
                     src={mbPortrait} 
-                    alt={`${personalData.displayName} — ${personalData.primaryTitle}`}
+                    alt="Mathubharathi A, Full Stack Developer and Biomedical Engineer"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
 
                 {/* Lower White Label Panel */}
                 <div className="bg-white rounded-2xl p-4 mt-3 text-center shadow-md border border-gray-100">
-                  <h4 className="text-gray-900 font-['Fjalla_One'] text-lg md:text-xl tracking-wider uppercase m-0 leading-tight">
+                  <h3 className="text-gray-900 font-['Fjalla_One'] text-lg md:text-xl tracking-wider uppercase m-0 leading-tight">
                     {personalData.name}
-                  </h4>
+                  </h3>
                   <p className="text-[#ff2a2a] font-['Fjalla_One'] text-[11px] md:text-xs tracking-widest uppercase mt-1.5 font-bold leading-snug m-0">
                     FULL STACK DEVELOPER & BIOMEDICAL ENGINEER
                   </p>
@@ -189,9 +189,9 @@ const About = () => {
 
           {/* Tech Row */}
           <div className="flex items-center gap-8 pt-2">
-            <img src={reactImage} alt="React" className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity" />
-            <img src={nodeImage} alt="Node.js" className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity" />
-            <img src={mongoImage} alt="MongoDB" className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <img src={reactImage} alt="React — Frontend UI Library" className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <img src={nodeImage} alt="Node.js — JavaScript Backend Runtime" className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <img src={mongoImage} alt="MongoDB — Database System" className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity" />
           </div>
         </div>
 

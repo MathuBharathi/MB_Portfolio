@@ -77,7 +77,7 @@ const Projects = () => {
 
                     <img 
                       src={imageMap[project.imageKey]} 
-                      alt={project.name} 
+                      alt={`${project.name} — ${project.category} by Mathubharathi A`} 
                       className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>

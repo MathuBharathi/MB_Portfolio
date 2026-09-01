@@ -62,7 +62,7 @@ const Preloader = () => {
         <div className="bounding border-r-2 border-[#1a1818] pr-4 overflow-hidden">
           <img 
             src={logoImg} 
-            alt="Logo" 
+            alt="Mathubharathi A Logo" 
             className="loader3-elem w-10 md:w-14 transform translate-y-full block" 
           />
         </div>

@@ -174,7 +174,7 @@ const Certifications = () => {
               <div className="flex-1 overflow-auto p-4 md:p-6 bg-gray-900/5 flex items-center justify-center min-h-75 cert-preview-container scrollbar-none">
                 <img
                   src={selectedCert.preview}
-                  alt={selectedCert.title}
+                  alt={`${selectedCert.title} Certificate — ${selectedCert.issuer || selectedCert.organization} for Mathubharathi A`}
                   className="max-w-full max-h-[60vh] object-contain rounded-2xl shadow-lg border border-gray-200/80 bg-white"
                 />
               </div>

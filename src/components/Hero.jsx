@@ -129,41 +129,43 @@ const Hero = () => {
   return (
     <section id="home" ref={heroRef} className="w-full bg-[#dadada] transition-colors duration-300 relative">
       <div id="landing-page" className="flex flex-col justify-between">
-        <div className="profile">
-          <div className="bounding elem1">
-            <h1 className="hero-boundingelem hero-bounding-elem">
-              <span className="black-text">MATHU</span>
-            </h1>
+        <h1 className="font-normal m-0 p-0">
+          <div className="profile">
+            <div className="bounding elem1">
+              <span className="hero-boundingelem hero-bounding-elem block">
+                <span className="black-text">MATHU</span>
+              </span>
+            </div>
           </div>
-        </div>
 
-        <div className="bounding elem2 relative">
-          <h1 className="hero-boundingelem hero-bounding-elem relative">
-            {/* Invisible placeholder maintaining exact layout dimensions */}
-            <span className="opacity-0 pointer-events-none select-none block md:inline-block" aria-hidden="true">
-              FULL STACK <br className="mobile-hero-break" />DEV.&nbsp;
-            </span>
-
-            {/* Typewriter text overlay */}
-            <span className="red-text absolute left-0 top-0 w-full block md:inline-block md:whitespace-nowrap">
-              {/* Mobile split rendering */}
-              <span className="inline md:hidden">
-                <span>{part1}</span>
-                {showBreak && <br className="mobile-hero-break" />}
-                <span>{part2}</span>
+          <div className="bounding elem2 relative">
+            <span className="hero-boundingelem hero-bounding-elem relative block">
+              {/* Invisible placeholder maintaining exact layout dimensions */}
+              <span className="opacity-0 pointer-events-none select-none block md:inline-block" aria-hidden="true">
+                FULL STACK <br className="mobile-hero-break" />DEV.&nbsp;
               </span>
 
-              {/* Desktop single continuous text run */}
-              <span className="hidden md:inline">
-                {displayedText}
-              </span>
+              {/* Typewriter text overlay */}
+              <span className="red-text absolute left-0 top-0 w-full block md:inline-block md:whitespace-nowrap">
+                {/* Mobile split rendering */}
+                <span className="inline md:hidden">
+                  <span>{part1}</span>
+                  {showBreak && <br className="mobile-hero-break" />}
+                  <span>{part2}</span>
+                </span>
 
-              {!prefersReducedMotion && (
-                <span className="typewriter-cursor" aria-hidden="true" />
-              )}
+                {/* Desktop single continuous text run */}
+                <span className="hidden md:inline">
+                  {displayedText}
+                </span>
+
+                {!prefersReducedMotion && (
+                  <span className="typewriter-cursor" aria-hidden="true" />
+                )}
+              </span>
             </span>
-          </h1>
-        </div>
+          </div>
+        </h1>
 
         {/* Hero CTAs & Supporting Tagline */}
         <div className="mt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-4 border-t border-[#1a1818]/15">

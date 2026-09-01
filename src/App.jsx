@@ -16,14 +16,18 @@ function App() {
     <>
       <Preloader />
       <CustomCursor />
-      <Navbar />
-      <Hero />
-      <About />
-      <Expertise />
-      <Skills />
-      <Projects />
-      <Certifications />
-      <Contact />
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <Hero />
+        <About />
+        <Expertise />
+        <Skills />
+        <Projects />
+        <Certifications />
+        <Contact />
+      </main>
       <Footer />
     </>
   )
