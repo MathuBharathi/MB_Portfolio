@@ -41,7 +41,7 @@ const Certifications = () => {
             </h2>
           </div>
           <p className="text-gray-500 max-w-sm text-base md:text-lg font-['Gilroy'] leading-relaxed">
-            Professional qualifications, government committee internship, industry job simulations, and academic degree credentials.
+            Professional qualifications, government committee internship, technical certifications, and academic degree credentials.
           </p>
         </motion.div>
 

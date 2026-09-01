@@ -1,13 +1,12 @@
-import introToCloudPdf from '../assets/certificates/Intro_to_Cloud-IBM.pdf';
-import introToCloudImg from '../assets/certificates/Intro_to_Cloud-IBM.png';
-import dataVizPdf from '../assets/certificates/TCS-Data_Visualization.pdf';
-import dataVizImg from '../assets/certificates/TCS-Data_Visualization.png';
-import genAiAnalyticsPdf from '../assets/certificates/TCS-GenAI_Data_Analytics.pdf';
-import genAiAnalyticsImg from '../assets/certificates/TCS-GenAI_Data_Analytics.png';
-import cloudFundamentalsPdf from '../assets/certificates/Cloud_Computing_Fundamentals-IBM.pdf';
-import cloudFundamentalsImg from '../assets/certificates/Cloud_Computing_Fundamentals-IBM.png';
 import bisInternshipPdf from '../assets/certificates/Internship-BIS.pdf';
 import bisInternshipImg from '../assets/certificates/Internship-BIS.png';
+import pythonGuviImg from '../assets/certificates/Python-Guvi.png';
+import javaHackerRankPdf from '../assets/certificates/Java_HackerRank.pdf';
+import javaHackerRankImg from '../assets/certificates/Java_HackerRank.png';
+import introToCloudPdf from '../assets/certificates/Intro_to_Cloud-IBM.pdf';
+import introToCloudImg from '../assets/certificates/Intro_to_Cloud-IBM.png';
+import cloudFundamentalsPdf from '../assets/certificates/Cloud_Computing_Fundamentals-IBM.pdf';
+import cloudFundamentalsImg from '../assets/certificates/Cloud_Computing_Fundamentals-IBM.png';
 
 export const personalData = {
   name: "MATHUBHARATHI A",
@@ -215,6 +214,26 @@ export const certificationsData = [
   },
   {
     id: "02",
+    title: "Python – GUVI",
+    organization: "GUVI / HCL",
+    issuer: "GUVI / HCL",
+    date: "October 28, 2025",
+    description: "Earned Certificate of Completion for Python training, certified by GUVI and HCL, validating core programming fundamentals, data structures, and problem-solving.",
+    file: pythonGuviImg,
+    preview: pythonGuviImg,
+  },
+  {
+    id: "03",
+    title: "Java – HackerRank",
+    organization: "HackerRank",
+    issuer: "HackerRank",
+    date: "November 11, 2025",
+    description: "Cleared the HackerRank Java (Basic) skill certification test, validating core knowledge of Java syntax, data structures, object-oriented programming concepts, and control flow.",
+    file: javaHackerRankPdf,
+    preview: javaHackerRankImg,
+  },
+  {
+    id: "04",
     title: "Introduction to Cloud",
     organization: "IBM SkillsBuild",
     issuer: "IBM SkillsBuild",
@@ -224,7 +243,7 @@ export const certificationsData = [
     preview: introToCloudImg,
   },
   {
-    id: "03",
+    id: "05",
     title: "Cloud Computing Fundamentals",
     organization: "IBM SkillsBuild",
     issuer: "IBM SkillsBuild",
@@ -233,26 +252,6 @@ export const certificationsData = [
     file: cloudFundamentalsPdf,
     preview: cloudFundamentalsImg,
     verificationUrl: "https://www.credly.com/badges/9f21dacc-d6d5-48cc-862c-9bba590b516c",
-  },
-  {
-    id: "04",
-    title: "GenAI Powered Data Analytics Job Simulation",
-    organization: "Forage / TATA",
-    issuer: "Forage / TATA",
-    date: "December 21, 2025",
-    description: "Completed practical job simulation tasks in exploratory data analysis, risk profiling, AI-assisted delinquency prediction, business report storytelling, and AI-driven collection strategies.",
-    file: genAiAnalyticsPdf,
-    preview: genAiAnalyticsImg,
-  },
-  {
-    id: "05",
-    title: "Data Visualisation: Empowering Business with Effective Insights",
-    organization: "Forage / TATA",
-    issuer: "Forage / TATA",
-    date: "December 22, 2025",
-    description: "Completed practical job simulation tasks in framing business scenarios, selecting visual representations, creating effective dashboards, and communicating insights to executive leadership.",
-    file: dataVizPdf,
-    preview: dataVizImg,
   },
 ];
 
